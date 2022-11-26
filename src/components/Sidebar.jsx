@@ -1,12 +1,12 @@
 import React from "react";
 import "./Sidebar.css";
 
-function Sidebar() {
+const Sidebar = ({ onAddNote }) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
         <h1>Note</h1>
-        <button>add</button>
+        <button onClick={onAddNote}>add</button>
       </div>
       <div className="app-sidebar-notes">
         <div className="app-sidebar-note">
@@ -20,6 +20,6 @@ function Sidebar() {
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;

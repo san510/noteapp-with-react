@@ -1,11 +1,23 @@
+import { useState } from "react";
 import "./App.css";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const onAddNote = () => {
+    const newNote = {
+      id: 1,
+      title: "New Note.",
+      detail: "New Note Detail.",
+      modDate: Date.now(),
+    };
+    setNotes([...notes, newNote]);
+  };
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar onAddNote={onAddNote} />
       <Main />
     </div>
   );
