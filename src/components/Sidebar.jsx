@@ -1,7 +1,9 @@
 import React from "react";
+import { format } from "date-fns";
+
 import "./Sidebar.css";
 
-const Sidebar = ({ onAddNote }) => {
+const Sidebar = ({ onAddNote, notes }) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
@@ -9,14 +11,16 @@ const Sidebar = ({ onAddNote }) => {
         <button onClick={onAddNote}>add</button>
       </div>
       <div className="app-sidebar-notes">
-        <div className="app-sidebar-note">
-          <div className="sidebar-note-title">
-            <strong>Title</strong>
-            <button>Delete</button>
+        {notes.map((note) => (
+          <div key={note.id} className="app-sidebar-note">
+            <div className="sidebar-note-title">
+              <strong>{note.title}</strong>
+              <button>Delete</button>
+            </div>
+            <p>{note.detail}</p>
+            <small>{format(note.modDate, "yyyy/MM/dd HH:mm")}</small>
           </div>
-          <p>Note Detail</p>
-          <small>last modifying date:xx/xx</small>
-        </div>
+        ))}
       </div>
     </div>
   );
