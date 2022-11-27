@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 import "./Sidebar.css";
 
-const Sidebar = ({ onAddNote, notes }) => {
+const Sidebar = ({ onAddNote, notes, onDeleteNote }) => {
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
@@ -15,7 +15,7 @@ const Sidebar = ({ onAddNote, notes }) => {
           <div key={note.id} className="app-sidebar-note">
             <div className="sidebar-note-title">
               <strong>{note.title}</strong>
-              <button>Delete</button>
+              <button onClick={() => onDeleteNote(note.id)}>Delete</button>
             </div>
             <p>{note.detail}</p>
             <small>{format(note.modDate, "yyyy/MM/dd HH:mm")}</small>
