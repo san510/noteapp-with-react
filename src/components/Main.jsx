@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.css";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Main = ({ activeNote, onUpdateNote }) => {
   const onEditNote = (key, value) => {
@@ -19,6 +20,7 @@ const Main = ({ activeNote, onUpdateNote }) => {
         <input
           id="title"
           type="text"
+          placeholder="タイトル"
           value={activeNote.title}
           onChange={(e) => onEditNote("title", e.target.value)}
         />
@@ -31,7 +33,9 @@ const Main = ({ activeNote, onUpdateNote }) => {
       </div>
       <div className="app-main-note-preview">
         <h1 className="preview-title">{activeNote.title}</h1>
-        <div className="markdown-preview">{activeNote.detail}</div>
+        <ReactMarkdown className="markdown-preview">
+          {activeNote.detail}
+        </ReactMarkdown>
       </div>
     </div>
   );
