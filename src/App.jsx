@@ -8,8 +8,6 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [activeNote, setActiveNote] = useState(false);
 
-  console.log(`activeNote:${activeNote}`);
-
   const onAddNote = () => {
     const newNote = {
       id: uuid(),

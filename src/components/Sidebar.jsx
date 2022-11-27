@@ -10,7 +10,6 @@ const Sidebar = ({
   activeNote,
   setActiveNote,
 }) => {
-  console.log("render Sidebar.");
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
